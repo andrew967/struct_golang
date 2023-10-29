@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"math"
 	"strconv"
+	"struct_go/pkg/hashTable/hashMap"
+	"struct_go/pkg/hashTable/hashSet"
 	"testing"
 )
 
@@ -23,7 +25,7 @@ func BenchmarkHashMap(b *testing.B) {
 }
 
 func BenchHashMap_Add(b *testing.B, size int) {
-	hm := NewHashMap(size)
+	hm := hashMap.NewHashMap(size)
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
@@ -33,7 +35,7 @@ func BenchHashMap_Add(b *testing.B, size int) {
 }
 
 func BenchHashMap_Get(b *testing.B, size int) {
-	hm := NewHashMap(size)
+	hm := hashMap.NewHashMap(size)
 	for i := 0; i < size; i++ {
 		key := "key" + strconv.Itoa(i)
 		hm.Add(key, i)
@@ -47,7 +49,7 @@ func BenchHashMap_Get(b *testing.B, size int) {
 }
 
 func BenchHashMap_Remove(b *testing.B, size int) {
-	hm := NewHashMap(size)
+	hm := hashMap.NewHashMap(size)
 	for i := 0; i < size; i++ {
 		key := "key" + strconv.Itoa(i)
 		hm.Add(key, i)
@@ -76,7 +78,7 @@ func BenchmarkHashSet(b *testing.B) {
 }
 
 func BenchHashSet_Add(b *testing.B, size int) {
-	hs := NewHashSet(size)
+	hs := hashSet.NewHashSet(size)
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
@@ -86,7 +88,7 @@ func BenchHashSet_Add(b *testing.B, size int) {
 }
 
 func BenchHashSet_Contains(b *testing.B, size int) {
-	hs := NewHashSet(size)
+	hs := hashSet.NewHashSet(size)
 	for i := 0; i < size; i++ {
 		key := fmt.Sprintf("key%d", i)
 		hs.Add(key)
@@ -101,7 +103,7 @@ func BenchHashSet_Contains(b *testing.B, size int) {
 }
 
 func BenchHashSet_Remove(b *testing.B, size int) {
-	hs := NewHashSet(size)
+	hs := hashSet.NewHashSet(size)
 	for i := 0; i < size; i++ {
 		key := fmt.Sprintf("key%d", i)
 		hs.Add(key)

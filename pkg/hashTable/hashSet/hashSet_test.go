@@ -1,4 +1,4 @@
-package hashTable
+package hashSet
 
 import (
 	"testing"

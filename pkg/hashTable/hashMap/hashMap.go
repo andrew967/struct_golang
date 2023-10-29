@@ -1,4 +1,4 @@
-package hashTable
+package hashMap
 
 import (
 	"fmt"
